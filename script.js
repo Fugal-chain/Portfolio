@@ -130,17 +130,21 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateActiveNav() {
         let current = '';
 
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (scrollY >= (sectionTop - sectionHeight / 3)) {
-                current = section.getAttribute('id');
-            }
-        });
+        // Force 'home' when sitting at the top
+        if (window.scrollY < 100) {
+            current = 'home';
+        } else {
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
 
-        // Force 'contact' if at the absolute bottom
-        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 2) {
-            current = 'contact';
+            // Force 'contact' if at the absolute bottom
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 2) {
+                current = 'contact';
+            }
         }
 
         navItems.forEach(a => {
