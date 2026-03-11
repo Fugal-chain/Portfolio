@@ -60,26 +60,57 @@ document.addEventListener('DOMContentLoaded', () => {
     /* Theme Toggle Logic */
     const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
-    const themeIcon = themeToggle.querySelector('i');
 
-    // Check for saved theme
-    const savedTheme = localStorage.getItem('portfolio-theme') || 'dark-theme';
-    body.className = savedTheme;
-    updateThemeIcon(savedTheme);
+    if (themeToggle) {
+        const themeIcon = themeToggle.querySelector('i');
 
-    themeToggle.addEventListener('click', () => {
-        const newTheme = body.classList.contains('dark-theme') ? 'light-theme' : 'dark-theme';
-        body.className = newTheme;
-        localStorage.setItem('portfolio-theme', newTheme);
-        updateThemeIcon(newTheme);
-    });
+        const getSafeTheme = () => {
+            try {
+                return localStorage.getItem('portfolio-theme') || 'dark-theme';
+            } catch (e) {
+                return 'dark-theme'; // Fallback if localStorage is restricted
+            }
+        };
 
-    function updateThemeIcon(theme) {
-        if (theme === 'light-theme') {
-            themeIcon.className = 'fas fa-sun';
-        } else {
-            themeIcon.className = 'fas fa-moon';
-        }
+        const setSafeTheme = (theme) => {
+            try {
+                localStorage.setItem('portfolio-theme', theme);
+            } catch (e) {
+                // Ignore storage errors (e.g. private mode)
+            }
+        };
+
+        const updateThemeIcon = (theme) => {
+            if (themeIcon) {
+                if (theme === 'light-theme') {
+                    themeIcon.classList.replace('fa-moon', 'fa-sun');
+                } else {
+                    themeIcon.classList.replace('fa-sun', 'fa-moon');
+                }
+            }
+        };
+
+        const applyTheme = (theme) => {
+            if (theme === 'light-theme') {
+                body.classList.remove('dark-theme');
+                body.classList.add('light-theme');
+            } else {
+                body.classList.remove('light-theme');
+                body.classList.add('dark-theme');
+            }
+            updateThemeIcon(theme);
+        };
+
+        // Initialize theme
+        const savedTheme = getSafeTheme();
+        applyTheme(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const isDark = body.classList.contains('dark-theme');
+            const newTheme = isDark ? 'light-theme' : 'dark-theme';
+            applyTheme(newTheme);
+            setSafeTheme(newTheme);
+        });
     }
 
     /* Typing Animation */
