@@ -47,16 +47,43 @@ document.addEventListener('DOMContentLoaded', () => {
     const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(13, 15, 23, 0.9)';
-            navbar.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.5)';
+            navbar.style.backgroundColor = 'var(--nav-bg)';
+            navbar.style.backdropFilter = 'blur(12px)';
+            navbar.style.boxShadow = 'var(--card-shadow)';
         } else {
-            navbar.style.background = 'var(--gradient-surface)';
+            navbar.style.backgroundColor = 'transparent';
+            navbar.style.backdropFilter = 'none';
             navbar.style.boxShadow = 'none';
         }
     });
 
+    /* Theme Toggle Logic */
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    const themeIcon = themeToggle.querySelector('i');
+
+    // Check for saved theme
+    const savedTheme = localStorage.getItem('portfolio-theme') || 'dark-theme';
+    body.className = savedTheme;
+    updateThemeIcon(savedTheme);
+
+    themeToggle.addEventListener('click', () => {
+        const newTheme = body.classList.contains('dark-theme') ? 'light-theme' : 'dark-theme';
+        body.className = newTheme;
+        localStorage.setItem('portfolio-theme', newTheme);
+        updateThemeIcon(newTheme);
+    });
+
+    function updateThemeIcon(theme) {
+        if (theme === 'light-theme') {
+            themeIcon.className = 'fas fa-sun';
+        } else {
+            themeIcon.className = 'fas fa-moon';
+        }
+    }
+
     /* Typing Animation */
-    const textArray = ["Software Developer", "Web Designer", "Tech Enthusiast", "Problem Solver"];
+    const textArray = ["Modern Web Experiences", "Interactive Interfaces", "Creative Web Solutions", "Digital Product Design"];
     const typingDelay = 100;
     const erasingDelay = 50;
     const newTextDelay = 2000; // Delay between current and next text
@@ -109,15 +136,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const filterValue = btn.getAttribute('data-filter');
 
+            let visibleCount = 0;
             projectCards.forEach(card => {
-                if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                const categories = card.getAttribute('data-category').split(' ');
+                if (filterValue === 'all' || categories.includes(filterValue)) {
                     card.style.display = 'flex';
-                    // Re-trigger animation
+                    // Re-trigger animation with dynamic faster staggered delay
+                    card.style.transitionDelay = `${visibleCount * 0.05}s`;
+                    visibleCount++;
+
                     card.classList.remove('visible');
-                    setTimeout(() => card.classList.add('visible'), 50);
+                    setTimeout(() => card.classList.add('visible'), 10);
                 } else {
                     card.style.display = 'none';
                     card.classList.remove('visible');
+                    card.style.transitionDelay = '0s';
                 }
             });
         });

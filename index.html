@@ -20,7 +20,7 @@
 
     <!-- Navigation -->
     <nav class="navbar glass">
-        <div class="logo">DevPortfolio.</div>
+        <div class="logo">Gowtham S K</div>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#skills">Skills</a></li>
@@ -28,8 +28,13 @@
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
-        <div class="hamburger">
-            <i class="fas fa-bars"></i>
+        <div class="nav-extra">
+            <button id="theme-toggle" class="theme-btn" title="Toggle Theme">
+                <i class="fas fa-moon"></i>
+            </button>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </nav>
 
@@ -37,13 +42,13 @@
     <header id="home" class="hero section">
         <div class="hero-content fade-in">
             <div class="hero-text">
-                <span class="greeting">Hi there, I'm</span>
+                <span class="greeting">Hello, I'm</span>
                 <h1 class="gradient-text">Gowtham S K</h1>
                 <h2 style="font-size: 1.5rem; margin-top: -1rem; margin-bottom: 1rem; color: var(--text-secondary);">
                     <span class="typing-text"></span><span class="cursor">&nbsp;</span>
                 </h2>
-                <p>Welcome to my portfolio. I build stunning, high-performance web applications and love exploring new
-                    technologies.</p>
+                <p>A passionate developer with an insatiable curiosity for technology, always eager to learn, adapt, and
+                    build impactful web experiences.</p>
                 <div class="hero-buttons">
                     <a href="#projects" class="btn primary-btn">View My Works</a>
                     <a href="#contact" class="btn secondary-btn">Contact Me</a>
@@ -130,17 +135,18 @@
 
         <div class="category-filter fade-in-up delay-1">
             <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="react">React</button>
-            <button class="filter-btn" data-filter="nodejs">Node.js</button>
-            <button class="filter-btn" data-filter="java">Java</button>
-            <button class="filter-btn" data-filter="javascript">JavaScript</button>
+            <button class="filter-btn" data-filter="group">Group Project</button>
             <button class="filter-btn" data-filter="html-css">HTML/CSS</button>
+            <button class="filter-btn" data-filter="javascript">JavaScript</button>
+            <button class="filter-btn" data-filter="java">Java</button>
+            <button class="filter-btn" data-filter="nodejs">Node.js</button>
+            <button class="filter-btn" data-filter="react">React</button>
             <button class="filter-btn" data-filter="scratch">Scratch</button>
         </div>
 
         <div class="project-grid">
             <!-- Project Card 1 -->
-            <div class="project-card glass fade-in-up delay-1" data-category="react">
+            <div class="project-card glass fade-in-up delay-1" data-category="react group">
                 <div class="project-img">
                     <img src="assets/sirpam.png" alt="Sirpam UI" class="project-card-img">
                 </div>
@@ -185,7 +191,7 @@
                 </div>
             </div>
 
-            <div class="project-card glass fade-in-up" data-category="html-css">
+            <div class="project-card glass fade-in-up delay-3" data-category="html-css">
                 <div class="project-img">
                     <img src="assets/villa.png" alt="Villa" class="project-card-img">
                 </div>
@@ -205,9 +211,9 @@
                 </div>
             </div>
 
-            <div class="project-card glass fade-in-up" data-category="java">
+            <div class="project-card glass fade-in-up delay-4" data-category="java">
                 <div class="project-img">
-                    <img src="assets/java_backend_dev.png" alt="Java Movie booking" class="project-card-img">
+                    <img src="assets/movie-ticket.png" alt="Java Movie booking" class="project-card-img">
                 </div>
                 <div class="project-info">
                     <h3>Movie booking - JDBC</h3>
@@ -224,7 +230,7 @@
                 </div>
             </div>
 
-            <div class="project-card glass fade-in-up" data-category="scratch">
+            <div class="project-card glass fade-in-up delay-5" data-category="scratch">
                 <div class="project-img">
                     <img src="assets/virtual OS.png" alt="Virtual OS" class="project-card-img">
                 </div>
@@ -278,6 +284,8 @@
                     <div class="project-links" style="margin-top: 1rem;">
                         <a href="https://github.com/Fugal-chain/PlanetSite" target="_blank" rel="noopener noreferrer"
                             class="icon-link"><i class="fab fa-github"></i></a>
+                        <a href="https://planetsite-e7fe.onrender.com/planet/mercury" target="_blank"
+                            rel="noopener noreferrer" class="icon-link"><i class="fas fa-external-link-alt"></i></a>
                     </div>
                 </div>
             </div>
@@ -285,7 +293,7 @@
             <!-- Pet Project Card 3 -->
             <div class="project-card glass fade-in-up delay-3" data-category="java">
                 <div class="project-img">
-                    <img src="assets/java_backend_dev.png" alt="Movie Booking System" class="project-card-img">
+                    <img src="assets/movie-ticket.png" alt="Movie Booking System" class="project-card-img">
                 </div>
                 <div class="project-info">
                     <h3>Movie Booking System</h3>
@@ -304,7 +312,7 @@
             <!-- Pet Project Card 4 -->
             <div class="project-card glass fade-in-up delay-4" data-category="nodejs">
                 <div class="project-img">
-                    <img src="assets/sirpam_ui.png" alt="Password Generator" class="project-card-img">
+                    <img src="assets/Password_Generator.png" alt="Password Generator" class="project-card-img">
                 </div>
                 <div class="project-info">
                     <h3>Password Generator</h3>
@@ -318,6 +326,8 @@
                     <div class="project-links" style="margin-top: 1rem;">
                         <a href="#" target="_blank" rel="noopener noreferrer" class="icon-link"><i
                                 class="fab fa-github"></i></a>
+                        <a href="https://passwordgenerator-production-b6b5.up.railway.app" target="_blank"
+                            rel="noopener noreferrer" class="icon-link"><i class="fas fa-external-link-alt"></i></a>
                     </div>
                 </div>
             </div>
@@ -325,7 +335,7 @@
             <!-- Pet Project Card 5 -->
             <div class="project-card glass fade-in-up delay-5" data-category="java">
                 <div class="project-img">
-                    <img src="assets/java_backend_dev.png" alt="Priority Queue" class="project-card-img">
+                    <img src="assets/max_priority_queue.png" alt="Priority Queue" class="project-card-img">
                 </div>
                 <div class="project-info">
                     <h3>Priority Queue</h3>
@@ -385,7 +395,7 @@
                 </div>
             </div>
 
-            <div class="project-card glass fade-in-up" data-category="html-css">
+            <div class="project-card glass fade-in-up delay-7" data-category="html-css">
                 <div class="project-img">
                     <img src="assets/Grid_layouting.png" alt="Grid Layouting" class="project-card-img">
                 </div>
@@ -404,7 +414,7 @@
                 </div>
             </div>
 
-            <div class="project-card glass fade-in-up" data-category="html-css">
+            <div class="project-card glass fade-in-up delay-8" data-category="html-css">
                 <div class="project-img">
                     <img src="assets/Altitude_pixalarity.png" alt="Altitude" class="project-card-img">
                 </div>
@@ -423,7 +433,7 @@
                 </div>
             </div>
 
-            <div class="project-card glass fade-in-up" data-category="scratch">
+            <div class="project-card glass fade-in-up delay-9" data-category="scratch">
                 <div class="project-img">
                     <img src="assets/Drawingboard.png" alt="Drawing board" class="project-card-img">
                 </div>
@@ -440,7 +450,7 @@
                 </div>
             </div>
 
-            <div class="project-card glass fade-in-up" data-category="scratch">
+            <div class="project-card glass fade-in-up delay-10" data-category="scratch">
                 <div class="project-img">
                     <img src="assets/spirograph.png" alt="Spirograph" class="project-card-img">
                 </div>
@@ -456,6 +466,25 @@
                     </div>
                 </div>
             </div>
+
+            <div class="project-card glass fade-in-up delay-10" data-category="scratch group">
+                <div class="project-img">
+                    <img src="assets/president-visit.png" alt="Spirograph" class="project-card-img">
+                </div>
+                <div class="project-info">
+                    <h3>President visit</h3>
+                    <p>A welcome project for the former president of India Ramnath Govind's visit to Zoho using Scratch
+                    </p>
+                    <div class="tech-stack">
+                        <span>Scratch</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="http://sivasuryamg-3ikyitoo-8443.zcodecorp.in/html_demo/scratch_project/Presidents%20Of%20India/Presidents%20Of%20India.html"
+                            target="_blank" rel="noopener noreferrer" class="icon-link"><i
+                                class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -464,8 +493,8 @@
     <footer id="contact" class="footer glass">
         <div class="footer-content">
             <div class="footer-left fade-in-up">
-                <h2>Let's build something <span class="gradient-text">together.</span></h2>
-                <p>Feel free to reach out for collaborations or just a friendly chat.</p>
+                <h2>Turning visions into <span class="gradient-text">digital reality.</span></h2>
+                <p>Reach out for collaborations or just a friendly chat.</p>
 
                 <div class="contact-methods mt-3">
                     <a href="mailto:gowtham.sk@zohocorp.com" target="_blank" rel="noopener noreferrer"
